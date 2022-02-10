@@ -1,7 +1,9 @@
 <div>
   <table style="margin-left: auto; margin-right: auto; margin-top: 5%; margin-bottom: auto;">
     <tr *ngFor="let row of board; let y = index">
-      <td *ngFor="let square of row; let x = index" style="height: 10vh; width: 10vh; text-align: center;" (click)="selectPiece(x, y)">
+      <td *ngFor="let square of row; let x = index"
+        [ngStyle]="{'background' : isThisPieceSelected(x, y) ? 'Green' : '' }"
+        style="height: 10vh; width: 10vh; text-align: center;" (click)="selectPiece(x, y)">
         <img [src]="icons[square]" style="height: 60%; width: 60%;">
       </td>
     </tr>
